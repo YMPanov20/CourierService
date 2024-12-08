@@ -1,0 +1,44 @@
+﻿@page
+@model courierSystem.PL.Pages.addShipmentSuccessModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="~/css/NavBar.css" />
+    <link rel="stylesheet" href="~/css/addShipmentSuccessStyle.css" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navContainer">
+                <ul class="nav-links">
+                    <li><a href="/Main">Track Shipment</a></li>
+                    <li><a href="/addShipment">Add Shipment</a></li>
+                    <li><a href="/ShipmentRedirection">Shipment Redirection</a></li>
+                    <li><a href="/Index">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="container">
+            <h2 class="header">Shipment Details Added Successfully</h2>
+
+            <div class="shipment-status">
+                <p class="tracking-code">Shipment Code: @Model.Finish.ShipmentDetailsCode</p>
+            </div>
+
+            <form method="post" asp-page-handler="Finish" class="finish-form">
+                <button type="submit" class="finish-button">Finish</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

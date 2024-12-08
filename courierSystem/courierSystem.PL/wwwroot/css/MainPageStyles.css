@@ -1,0 +1,26 @@
+﻿html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.map {
+    margin-top: 10px;
+    flex: 1;
+    height: 500px;
+    position: relative;
+}
+
+.footer {
+    background: linear-gradient(120deg, #2f2f2f, #111111);
+    color: #eee;
+    padding: 27px 20px;
+    height: 100px;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #ccc;
+}

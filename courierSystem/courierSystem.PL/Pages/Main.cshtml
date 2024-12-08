@@ -1,0 +1,106 @@
+﻿@page
+@model MainModel
+@{
+    ViewData["Title"] = "Main";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Admin</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="~/css/NavBar.css" />
+    <link rel="stylesheet" href="~/css/MainPageStyles.css" />
+    <link rel="stylesheet" href="~/css/SearchBarStyle.css" />
+    <link rel="stylesheet" href="~/css/SearchResultsStyle.css" />
+    <link rel="stylesheet" href="~/css/FooterStyle.css" />
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navContainer">
+            <ul class="nav-links">
+                <li><a href="/Main">Track Shipment</a></li>
+                <li><a href="/addShipment">Add Shipment</a></li>
+                <li><a href="/ShipmentRedirection">Shipment Redirection</a></li>
+                <li><a href="/Index">Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="map" class="map"></div>
+
+    <div class="search-bar">
+        <form method="post" asp-page-handler="Track">
+            <input asp-for="@Model.ShipmentDetails.ShipmentDetailsCode" type="text" placeholder="Shipment code...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    @if(Model.SearchResultNotFound){
+        <div class="container">
+            <div class="message">Shipment not found!</div>
+        </div>
+    }
+    @if(Model.SearchResultFound){
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelector('.search-results').scrollIntoView({ behavior: 'smooth' });
+            });
+        </script>
+
+        <div class="container">
+            <div class="search-results">
+                <h3>Search Results:</h3>
+                <div class="flex flex-wrap">
+                    <div class="result-item">
+                        <h4>Receiver Name:</h4>
+                        <p>@Model.shipmentInfo.ReceiverName</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Receiver Phone Number:</h4>
+                        <p>@Model.shipmentInfo.ReceiverPhoneNumber</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Sender Name:</h4>
+                        <p>@Model.shipmentInfo.SenderName</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Sender Phone Number:</h4>
+                        <p>@Model.shipmentInfo.SenderPhoneNumber</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Shipment Details:</h4>
+                        <p>@Model.shipmentInfo.ShipmentDetails</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Shipment Weight:</h4>
+                        <p>@Model.shipmentInfo.ShipmentWeight</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Destination Office:</h4>
+                        <p>@Model.shipmentInfo.DestinationOfficeName</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-bottom">
+                &copy; 2024 Courier Service System | Developed by Yoan Panov
+            </div>
+        </div>
+
+    }
+
+    <script src="~/js/Map.js"></script>
+</body>
+</html>

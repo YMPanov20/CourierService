@@ -1,0 +1,22 @@
+﻿.receipt-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.receipt-details {
+    margin-bottom: 20px;
+}
+
+.price-details {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+}

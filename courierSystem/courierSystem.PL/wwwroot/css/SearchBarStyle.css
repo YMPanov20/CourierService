@@ -1,0 +1,47 @@
+﻿.search-bar {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    padding: 15px;
+    width: 60%;
+    box-sizing: border-box;
+    border: 2px solid #333333;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+button {
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #333333;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+button:hover {
+    background-color: #555555;
+}
+
+input:focus {
+    border-color: #555555;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+form > * {
+    margin-right: 10px;
+}

@@ -1,0 +1,83 @@
+﻿@page
+@model courierSystem.PL.Pages.addShipmentModel
+@{
+    ViewData["Title"] = "Add package";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="~/css/AddShipment.css" />
+    <link rel="stylesheet" href="~/css/NavBar.css" />
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navContainer">
+            <ul class="nav-links">
+                <li><a href="/Main">Track Shipment</a></li>
+                <li><a href="/addShipment">Add Shipment</a></li>
+                <li><a href="/ShipmentRedirection">Shipment Redirection</a></li>
+                <li><a href="/Index">Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <form method="post" asp-page-handler="AddShipment">
+            <h2>Add Shipment</h2>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="column">
+                        <label for="senderFirstName">Sender Name:</label>
+                        <input asp-for="shipment.SenderName" type="text" id="senderFirstName" class="input-field" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <label for="senderPhoneNumber">Sender Phone Number:</label>
+                            <input asp-for="shipment.SenderPhoneNumber" id="senderPhoneNumber" class="input-field" minlength="10" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <label for="receiverName">Receiver Name:</label>
+                        <input asp-for="shipment.ReceiverName" type="text" id="receiverName" class="input-field" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <label for="receiverPhoneNumber">Receiver Phone Number:</label>
+                            <input asp-for="shipment.ReceiverPhoneNumber" id="receiverPhoneNumber" class="input-field" minlength="10" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="officeName">Office Name:</label>
+                    <input asp-for="shipment.OfficeName" type="text" id="officeName" class="input-field" required>
+                </div>
+
+                <div class="row">
+                    <label for="shipmentDetails">Shipment Details:</label>
+                    <textarea asp-for="shipment.ShipmentDetails" id="shipmentDetails" class="input-field" rows="4"></textarea>
+                </div>
+
+                <div class="row">
+                    <label for="shipmentWeight">Shipment Weight (kg):</label>
+                    <input asp-for="shipment.ShipmentWeight" type="number" id="shipmentWeight" class="input-field" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-button">Add Shipment</button>
+        </form>
+    </div>
+
+</body>
+</html>
